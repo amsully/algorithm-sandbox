@@ -32,7 +32,7 @@ public class AB {
 			createdString = createdString + "A";
 		}
 		
-		return	createStringHelper(createdString, 0, N, K);
+		return	createStringHelper(createdString, K);
 		
 	}
 	
@@ -56,32 +56,31 @@ public class AB {
 		return KCount;
 	}
 	
-	private String createStringHelper( String createdString, int start, int end, int K )
+	private String createStringHelper(String createdString, int K)
 	{
-		// Where this method call will change the string.
-		int replaceIndex = start + ((end -start)/2);
-		String modifiedString = createdString.substring(0, replaceIndex)+'B'+createdString.substring(replaceIndex+1);
+		for( int h = createdString.length()-1; h >=0; h-- )
+		{
+
+			for( int i = h; i >=0; i-- )
+			{
+				String originalString = createdString;
+				createdString = createdString.substring(0, i)+'B'+createdString.substring(i+1);
+				
+				int pairs = calculateNumberOfPairs(createdString);
+				
+				if(K == pairs)
+				{
+					System.out.println(createdString);
+					return createdString;
+				}else if( K < pairs )
+				{
+					createdString = originalString;
+				}
+				
+			}
+		}
 		
-		int numberOfPairs = calculateNumberOfPairs(modifiedString);
-		System.out.println(modifiedString);
-		System.out.println(numberOfPairs);
-		
-		if( K == numberOfPairs)
-		{
-			return modifiedString;
-		}
-		else if( start == end )
-		{
-			return modifiedString;
-		}
-		else if( K > numberOfPairs)
-		{
-			return createStringHelper(createdString, start, replaceIndex, K);
-		}
-		else
-		{
-			return createStringHelper(modifiedString, replaceIndex, end, K);
-		}
+		return "";
 	}
 	
 }
