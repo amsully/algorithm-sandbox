@@ -62,7 +62,7 @@ public class AB {
 		{
 
 			for( int i = h; i >=0; i-- )
-			{
+			{    
 				String originalString = createdString;
 				createdString = createdString.substring(0, i)+'B'+createdString.substring(i+1);
 				
