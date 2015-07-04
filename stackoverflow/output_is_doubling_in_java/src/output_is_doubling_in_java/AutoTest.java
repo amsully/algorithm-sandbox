@@ -1,0 +1,20 @@
+package output_is_doubling_in_java;
+
+public class AutoTest{
+	
+
+	public static void main(String[] args)
+	{
+	
+	  Automobile automobile;
+	
+	  Prius prius = new Prius("Toyota", "Prius", "Hybrid", "Automatic", "98 hp @ 5200 rpm",
+	        "153 lb-ft", "13.0:1", "51 City / 48 Highway", "85 Octane");
+	
+	  automobile =  prius;
+	
+	  System.out.println("Automobile: " + automobile);
+	
+	
+	}
+}
