@@ -30,7 +30,7 @@ public class ABTest {
 	@Test
 	public void test32() {
 				
-		assertEquals("ABB", stringGenerator.createString(3, 2) );
+		assertEquals("AAB", stringGenerator.createString(3, 2) );
 		
 	}
 	@Test
@@ -49,10 +49,34 @@ public class ABTest {
 	@Test
 	public void test1012() {
 				
-		assertEquals("BAABBABAAB", stringGenerator.createString(10, 12) );
+		assertEquals("AAAABAAAAB", stringGenerator.createString(10, 12) );
 		
 	}
+	@Test
+	public void testTime20() {
 
+		long start = System.nanoTime();
+		stringGenerator.createString(20, 10);
+		long end = System.nanoTime();
+		long elapsedTime = end - start;
+		double seconds = (double)elapsedTime / 1000000000.0;
+		
+		assertTrue( (seconds) < 2);
+		
+	}
+	
+	@Test
+	public void testTime35() {
+
+		long start = System.nanoTime();
+		stringGenerator.createString(35, 200);
+		long end = System.nanoTime();
+		long elapsedTime = end - start;
+		double seconds = (double)elapsedTime / 1000000000.0;
+		
+		assertTrue( (seconds) < 2);
+		
+	}
 	
 	@Test
 	public void testStringCutTechnique()
