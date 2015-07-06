@@ -1,0 +1,116 @@
+package program_terminates_without_running_in_eclipse;
+
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.border.EtchedBorder;
+
+public class HOme extends JFrame{
+
+Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+int width = (int) screenSize.getWidth();
+int height = (int) screenSize.getHeight();
+Color cardinal = new Color(194, 35, 38);
+int w=155;
+int h=50;
+public HOme(String title) {
+
+    super(title);
+
+    getContentPane().setSize(width,height);
+    getContentPane().setBackground(Color.WHITE);
+    getContentPane().setLayout(null);
+
+
+    final JPanel panel2 = new JPanel();
+    panel2.setBounds(364, 33, 664, 344);
+    getContentPane().add(panel2);
+
+    JPanel panel3 = new JPanel();
+    panel3.setBackground(Color.WHITE);
+    panel3.setBounds(81, 382, 947, 243);
+    getContentPane().add(panel3);
+    panel3.setLayout(null);
+
+    JButton btnHome = new JButton("Home");
+    btnHome.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+    btnHome.setForeground(Color.WHITE);
+    btnHome.setBackground(cardinal);
+    btnHome.setBounds(517, 33, w, h);
+    btnHome.setContentAreaFilled(false);
+    btnHome.setOpaque(true);
+    panel3.add(btnHome);
+
+    JButton btnClients = new JButton("Clients");
+    btnClients.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+    btnClients.setForeground(Color.WHITE);
+    btnClients.setBounds(690, 33, w, h);
+    btnClients.setBackground(cardinal);
+    btnClients.setContentAreaFilled(false);
+    btnClients.setOpaque(true);
+    panel3.add(btnClients);
+
+    JButton btnClose = new JButton("Close");
+    btnClose.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+    btnClose.setForeground(Color.WHITE);
+    btnClose.setBounds(690, 198, w, h);
+    btnClose.setBackground(cardinal);
+    btnClose.setContentAreaFilled(false);
+    btnClose.setOpaque(true);
+    panel3.add(btnClose);
+
+    JButton btnLogin = new JButton("Admin Login");
+    btnLogin.addActionListener(new ActionListener() {
+        public void actionPerformed(ActionEvent arg0) {
+            Login l=new Login();
+            panel2.add(l);
+        }
+    });
+    btnLogin.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+    btnLogin.setForeground(Color.WHITE);
+    btnLogin.setBounds(517, 116, w, h);
+    btnLogin.setBackground(cardinal);
+    btnLogin.setContentAreaFilled(false);
+    btnLogin.setOpaque(true);
+    panel3.add(btnLogin);
+
+    JPanel panel1 = new JPanel();
+    panel1.setBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(204, 51, 0), null));
+    panel1.setBackground(Color.WHITE);
+    panel1.setBounds(81, 33, 263, 344);
+    getContentPane().add(panel1);
+    panel1.setLayout(null);
+
+
+    JButton btnStartMonitoring = new JButton("");
+    btnStartMonitoring.setIcon(new ImageIcon(path1));
+    btnStartMonitoring.setBackground(cardinal);
+
+    btnStartMonitoring.setForeground(Color.WHITE);
+    btnStartMonitoring.setFont(new Font("Tahoma", Font.PLAIN, 15));
+    btnStartMonitoring.setBounds(10, 274, 239, 59);
+
+    panel1.add(btnStartMonitoring);
+
+    JLabel lblLogo = new JLabel("New label");
+    lblLogo.setIcon(new ImageIcon(path2));
+    lblLogo.setBounds(0, 11, 263, 253);
+    panel1.add(lblLogo);
+
+}
+
+
+public static void main(String args[]) {
+
+      new HOme("HOme");
+        //System.exit(0);
+}
