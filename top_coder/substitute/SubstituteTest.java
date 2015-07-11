@@ -30,7 +30,7 @@ public class SubstituteTest {
 	//Returns: 0
 	//2)
 	//"CRYSTALBUM"
-	//"MMA"
+	//"MMA" 
 	//Returns: 6
 	
 }
